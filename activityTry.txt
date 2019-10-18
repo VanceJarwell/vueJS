@@ -25,10 +25,8 @@
   <button v-on:click='manilaRestaurant'>Manila</button>
   <br>
   <ol>
-    <li v-for="restaurant in baguio">{{ restaurant }}</li>
-  </ol>
-   <ol>
-    <li v-for="restaurant in manila">{{ restaurant }}</li>
+    <li v-for="restaurant in caller">{{ restaurant }}</li>
+<!--     <li v-for="restaurant in manila">{{ restaurant }}</li> -->
   </ol>
   
 <!-- <ol>
@@ -49,33 +47,32 @@
 
 
 
-
 new Vue({
 	el:'#app',
-  data: {
-  	message: 'Hello world',
+  data: {/* 
+    message: 'Hello world',
     link: 'https://google.com',
-    counter: 0,
-    baguio:	'',
+    counter: 0, */
+    caller:	'',
     manila: '',
     manilaRest: ['Star', 'Resorts', 'MOA'],
     baguioRest: ['Jacks', 'Goodtaste', 'Mcdo', 'Pets']
   },
-  methods: {
-  	printMessage: function() {
-    	return this.message;
+  methods: {/* 
+    printMessage: function() {
+      return this.message;
     },
     incrementCounter: function(step){
       this.counter+=step;
     },
     confirmSubmission() {
-    	confirm('Are you sure?');
-    },
+      confirm('Are you sure?');
+    }, */
     baguioRestaurant() {
-    	this.baguio = this.baguioRest;
+    	this.caller = this.baguioRest;
     },
     manilaRestaurant() {
-    	this.manila = this.manilaRest;
+    	this.caller = this.manilaRest;
     }
   }
 })
