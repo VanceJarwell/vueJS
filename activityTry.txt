@@ -1,0 +1,81 @@
+<!-- development version, includes helpful console warnings -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<div id='app'>
+<!--   {{ printMessage() }}
+  <br>
+  <a v-bind:href='link' _target=''>
+    Go to google
+  </a>
+  
+  <br>
+  
+  <button v-on:click='incrementCounter(2)'>
+    click me
+  </button>
+  
+  <br>
+   -->
+<!--   <form action="">
+    <input type="submit" value="Submit" v-on:click.prevent='confirmSubmission'>
+    <input type="text" v-model='first_name'>
+  </form> -->
+  <button v-on:click='baguioRestaurant'>
+  Baguio
+  </button>
+  <button v-on:click='manilaRestaurant'>Manila</button>
+  <br>
+  <ol>
+    <li v-for="restaurant in baguio">{{ restaurant }}</li>
+  </ol>
+   <ol>
+    <li v-for="restaurant in manila">{{ restaurant }}</li>
+  </ol>
+  
+<!-- <ol>
+    <li v-for="people in students">{{ people }}</li>
+  </ol> -->
+  
+<!-- <table>
+    <tr v-for='student in students'>
+      <td>{{ student }}</td>
+    </tr>
+  </table> -->
+  
+<!--   <p>
+    Counter: {{counter}}
+  </p>
+   -->
+</div>
+
+
+
+
+new Vue({
+	el:'#app',
+  data: {
+  	message: 'Hello world',
+    link: 'https://google.com',
+    counter: 0,
+    baguio:	'',
+    manila: '',
+    manilaRest: ['Star', 'Resorts', 'MOA'],
+    baguioRest: ['Jacks', 'Goodtaste', 'Mcdo', 'Pets']
+  },
+  methods: {
+  	printMessage: function() {
+    	return this.message;
+    },
+    incrementCounter: function(step){
+      this.counter+=step;
+    },
+    confirmSubmission() {
+    	confirm('Are you sure?');
+    },
+    baguioRestaurant() {
+    	this.baguio = this.baguioRest;
+    },
+    manilaRestaurant() {
+    	this.manila = this.manilaRest;
+    }
+  }
+})
