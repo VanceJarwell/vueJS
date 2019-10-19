@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Activity</title>
+</head>
+<body>
+	<div id='app'>
+		Select branch:
+		<select v-model='selected_branch'>
+			<option v-for="branch in branches" :value="branch">{{branch.name}}</option>
+		</select>
+		Select movie:
+		<select>
+			<option v-for="movie in selected_branch.movies" >{{movie.name}}</option>
+		</select>
+	</div>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+	new Vue({
+		el:'#app',
+		data: {
+			selected_branch:'',
+			branches:[
+				{
+					name:'Cinema Baguio',
+					movies:[
+						{name:'The Joker'},
+						{name:'Interstellar'},
+						{name:'Shawshank Redemption'},
+						{name:'Pulp fiction'},
+						{name:'Batman'}
+					]
+				},
+				{
+					name:'Cinema Manila',
+					movies:[
+						{name:'Joker'},
+						{name:'High'},
+						{name:'Annablle'},
+						{name:'Redemption'}
+					]
+			    },
+			    {
+			    	name:'Cinema Cebu',
+					movies:[
+						{name:'Ninja'},
+						{name:'Baby Boss'},
+						{name:'Scar'},
+						{name:'Halloween'}
+					]
+			    },
+			    {
+			    	name:'Cinema Isabela',
+					movies:[
+						{name:'Scary Movie'},
+						{name:'Juan'},
+						{name:'Heneral Luna'},
+						{name:'Clash'}
+					]
+			    },
+			    {
+			    	name:'Cinema Davao',
+					movies:[
+						{name:'Carrie'},
+						{name:'Alien'},
+						{name:'Link'},
+						{name:'Clique'}
+					]
+			    },
+			]
+		}
+	})
+
+</script>
+</html>
