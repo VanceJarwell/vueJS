@@ -20,7 +20,7 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item" v-for='task in to_dos'>{{ task.name }}
               <mark v-if="task.is_important==1">Important</mark>
-              <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="float: right;">
                 Move
               </button>
               <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
@@ -38,7 +38,7 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item" v-for='task in doing'>{{ task.name }}
               <mark v-if="task.is_important==1">Important</mark>
-              <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="float: right;">
                 Move
               </button>
               <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
@@ -56,7 +56,7 @@
           <ul class="list-group list-group-flush">
             <li class="list-group-item" v-for='task in done'>{{ task.name }}
               <mark v-if="task.is_important==1">Important</mark>
-              <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="float: right;">
                 Move
               </button>
               <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
@@ -85,7 +85,11 @@
           done:[],
           to_dos:[
             {'id': 1, 'name': 'Walk the dog', 'is_important': 1},
-            {'id': 2, 'name': 'Walk the cat', 'is_important': 0}            
+            {'id': 2, 'name': 'Walk the cat', 'is_important': 0},
+            {'id': 3, 'name': 'Walk the turtle', 'is_important': 0},
+            {'id': 4, 'name': 'Walk the lion', 'is_important': 0},
+            {'id': 5, 'name': 'Walk the panda', 'is_important': 1},
+            {'id': 6, 'name': 'Walk the walk', 'is_important': 1}
           ]
         },
         methods:{
