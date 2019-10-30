@@ -11,8 +11,23 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
-
+    <div id="app">
+      <table class="table">
+        <thead>
+          <tr>
+            <th scope="col">Name</th>
+            <th scope="col" v-for='subject in subjects'>{{ subject.name }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr v-for='names in students'>
+            <td>{{ names.name }}</td>
+            <td v-for='subject in subjects'>{{ getGrade(names.id, subject.id) }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
@@ -26,14 +41,41 @@
         el:'#app',
         data:{
           students: [
-            {id: 1, name:'Vance'}
+            {id: 1, name:'Vance'},
+            {id: 2, name:'Lexus'},
+            {id: 3, name:'Carl'},
+            {id: 4, name:'Tes'}
           ],
           subjects:[
-            {id: 1, name:'WIS1'}
+            {id: 1, name:'WIS1'},
+            {id: 2, name:'Capstone 1'},
+            {id: 3, name:'SOC SCI'}
           ],
           grades:[
-            {student_id: 1, subject_id: 1, grade: 90}
+            {student_id: 1, subject_id: 1, grade: 90},
+            {student_id: 2, subject_id: 1, grade: 89},
+            {student_id: 3, subject_id: 1, grade: 70},
+            {student_id: 4, subject_id: 1, grade: 65},
+            {student_id: 1, subject_id: 2, grade: 90},
+            {student_id: 2, subject_id: 2, grade: 89},
+            {student_id: 3, subject_id: 2, grade: 70},
+            {student_id: 4, subject_id: 2, grade: 65},
+            {student_id: 1, subject_id: 3, grade: 90},
+            {student_id: 2, subject_id: 3, grade: 89},
+            {student_id: 3, subject_id: 3, grade: 70},
+            {student_id: 4, subject_id: 3, grade: 65},
           ]
+        },
+        methods:{
+          getGrade(student_id, subject_id){
+            var grad = this.grades.find(function(grade){
+                return grade.student_id == student_id && grade.subject_id == subject_id;
+            });
+            if(!grad){
+              return "";
+            }
+            return grad.grade;
+          }
         }
       })
     </script>
